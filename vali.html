@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+            font-family: sans-serif;
+            }
+
+            form {
+            width: 500px;
+            margin: 0 auto;
+            }
+
+            input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border 0.2s ease-in-out;
+            }
+
+            input:focus {
+            border-color: #007bff;
+            }
+
+            button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            }
+
+            button:hover {
+            background-color: #0069d9;
+            }
+
+            #email {
+            font-size: 16px;
+            font-weight: bold;
+            color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Create Email Account</h2>
+        <p>The Current Domain Used is</p>
+
+        <form id="myForm">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <button type="button" id="btn" style="display:none;" onclick="createEmail()">Create Email</button>
+            <p id="email"></p>
+        </form>
+
+        <script>
+            document.getElementById('myForm').addEventListener('input', function() {
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            if (fname && lname) {
+            document.getElementById('btn').style.display = 'block';
+            } else {
+            document.getElementById('btn').style.display = 'none';
+            }
+            });
+
+            function createEmail() {
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            var email = fname + lname + '@psu.palawan.edu.ph';
+            document.getElementById('email').innerHTML = 'Created Email: ' + email;
+            }
+        </script>
+    </body>
+</html>
